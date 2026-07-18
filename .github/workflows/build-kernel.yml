@@ -265,12 +265,11 @@ jobs:
                 echo "CONFIG_KPROBE_EVENTS=y" >> arch/${{ env.KERNEL_ARCH }}/configs/${DEVICE}_defconfig
             fi
         for config in CONFIG_KSU=y \
+                      CONFIG_KSU_EXTRAS=y \
                       CONFIG_KSU_TAMPER_SYSCALL_TABLE=y \
-                      CONFIG_KSU_SUSFS=y \
-                      CONFIG_KSU_SUSFS_SUS_MAP=y \
-                      CONFIG_KSU_SUSFS_SUS_MOUNT=y \
-                      CONFIG_KSU_SUSFS_TRY_UMOUNT=y \
-                      CONFIG_KSU_SUSFS_SUS_MEMFD=y
+                      CONFIG_KSU_THRONE_TRACKER_ALWAYS_THREADED=y \
+                      CONFIG_KSU_FEATURE_SULOG=y \
+                      CONFIG_KSU_FEATURE_ADBROOT=y
         do
         echo "$config" >> arch/${{ env.KERNEL_ARCH }}/configs/${DEVICE}_defconfig
         done
